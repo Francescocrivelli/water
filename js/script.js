@@ -424,21 +424,14 @@ const add = document.querySelector("#add");
 const subtract = document.querySelector("#subtract");
 
 add.addEventListener("click", (e) => {
-        console.log("HEEEEEY");
-
-
   userAmount += 8;
   totalPercentage = Math.floor((userAmount/64) * 100);
   fm.setPercentage(totalPercentage);
-  if (totalPercentage>=100)
-    $('#congratsModal').modal('show');
 })
 
 subtract.addEventListener("click", (e) => {
   userAmount -= 8;
   totalPercentage = Math.floor((userAmount/64) * 100);
   fm.setPercentage(totalPercentage);
-  if (totalPercentage>=100)
-    $('#congratsModal').modal('show');
 })
 
