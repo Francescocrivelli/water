@@ -14,7 +14,7 @@ window.onload = (event) => {
 
 const handleWaterSubmit = () => {
   // 1. Capture the form data
-  console.log('hi')
+  console.log('reading data')
   const input = document.querySelector("#userAmount");
   console.log(input)
   // 2. Format the data and write it to our database
