@@ -414,6 +414,8 @@ var userAmount = 0
 var totalPercentage = 0;
 
 submitButton.addEventListener("click", (e) => {
+        console.log("HEEEEEY");
+
   let current = parseInt(userInput.value)
   userAmount += current;
   totalPercentage = Math.floor((userAmount/64) * 100);
@@ -424,6 +426,9 @@ const add = document.querySelector("#add");
 const subtract = document.querySelector("#subtract");
 
 add.addEventListener("click", (e) => {
+        console.log("HEEEEEY");
+
+
   userAmount += 8;
   totalPercentage = Math.floor((userAmount/64) * 100);
   fm.setPercentage(totalPercentage);
