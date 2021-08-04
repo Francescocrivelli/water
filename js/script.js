@@ -407,6 +407,7 @@ fm.init({
     }
   }
 });
+    console.log("HEY02");
 
 const submitButton = document.querySelector("#submit");
 const userInput = document.querySelector("#userAmount");

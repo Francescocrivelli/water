@@ -29,7 +29,9 @@ const signIn = () => {
       email,
       credential
     };
-    console.log(err+"HWY");
+    console.log(err);
+    console.log("HEY02");
+
   });
 
 }
