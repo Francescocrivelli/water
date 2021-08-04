@@ -1,6 +1,4 @@
 
-//water info
-
 /**
  * Javascript Fluid Meter
  * by Angel Arcoraci
