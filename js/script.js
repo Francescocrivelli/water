@@ -448,7 +448,6 @@ submitButton.addEventListener("click", (e) => {
         percentage: totalPercentage,
         created: date
     }).getKey()
-  // 3. Clear the form so that we can write a new note
     userInput.value = "";
 
 }
