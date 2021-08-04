@@ -14,4 +14,6 @@ console.log(
     appId: "1:958686492255:web:d28971bdfca0f499074dea"
   };
   // Initialize Firebase
+  var db = firebase.firestore();
   firebase.initializeApp(firebaseConfig);
+
