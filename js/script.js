@@ -438,3 +438,4 @@ subtract.addEventListener("click", (e) => {
   if (totalPercentage>=100)
     $('#congratsModal').modal('show');
 })
+
