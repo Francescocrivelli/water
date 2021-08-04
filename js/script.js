@@ -445,6 +445,7 @@ submitButton.addEventListener("click", (e) => {
   if (count<2)
   {
      userKey = firebase.database().ref(`users/${userGlobal}`).push({
+        consumption: userAmount,
         percentage: totalPercentage,
         created: date
     }).getKey()
@@ -453,6 +454,7 @@ submitButton.addEventListener("click", (e) => {
 }
 else{
     const noteEdits = {
+    consumption: userAmount,
     percentage: totalPercentage,
   }; 
     firebase.database().ref(`users/${userGlobal}/${userKey}`).update(noteEdits);
