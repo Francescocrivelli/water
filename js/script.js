@@ -423,6 +423,14 @@ const submitButton = document.querySelector("#submit");
 const userInput = document.querySelector("#userAmount");
 var userAmount = 0
 var totalPercentage = 0;
+/*
+userRef.child('mike').update({'dateOfBirth': moment(value.dateOfBirth).toDate().getTime()})
+
+firebase.database().ref().child('/posts/' + newPostKey)
+        .update({ title: "New title", body: "This is the new body" });
+
+*/
+
 
 submitButton.addEventListener("click", (e) => {
   let current = parseInt(userInput.value)
@@ -431,7 +439,6 @@ submitButton.addEventListener("click", (e) => {
   fm.setPercentage(totalPercentage);
   console.log('reading data')
   const total = 64;
-//   console.log(input)
   // 2. Format the data and write it to our database
   firebase.database().ref(`users/${googleUser.uid}`).push({
     percentage: userAmount
@@ -441,19 +448,4 @@ submitButton.addEventListener("click", (e) => {
     userInput.value = "";
   });
 })
-
-const add = document.querySelector("#add");
-const subtract = document.querySelector("#subtract");
-
-add.addEventListener("click", (e) => {
-  userAmount += 8;
-  totalPercentage = Math.floor((userAmount/64) * 100);
-  fm.setPercentage(totalPercentage);
-})
-
-subtract.addEventListener("click", (e) => {
-  userAmount -= 8;
-  totalPercentage = Math.floor((userAmount/64) * 100);
-  fm.setPercentage(totalPercentage);
-})
-
+ 
