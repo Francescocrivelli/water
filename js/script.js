@@ -1,11 +1,14 @@
 let googleUser;
-
+var userGlobal;
+let userKey;
 window.onload = (event) => {
   // Use this to retain user state between html pages.
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       console.log('Logged in as: ' + user.displayName);
       googleUser = user;
+      userGlobal = user.uid;
+      console.log(userGlobal)
     } else {
       window.location = 'index.html'; // If not logged in, navigate back to login page.
     }
@@ -418,43 +421,42 @@ fm.init({
     }
   }
 });
-    console.log("HEY02");
 
 const submitButton = document.querySelector("#submit");
 const userInput = document.querySelector("#userAmount");
 var userAmount = 0
 var totalPercentage = 0;
+/*
+userRef.child('mike').update({'dateOfBirth': moment(value.dateOfBirth).toDate().getTime()})
 
+firebase.database().ref().child('/posts/' + newPostKey)
+        .update({ title: "New title", body: "This is the new body" });
+
+*/
+let count = 0
 submitButton.addEventListener("click", (e) => {
+  count++;
   let current = parseInt(userInput.value)
   userAmount += current;
   totalPercentage = Math.floor((userAmount/64) * 100);
   fm.setPercentage(totalPercentage);
   console.log('reading data')
   const total = 64;
-//   console.log(input)
-  // 2. Format the data and write it to our database
-  firebase.database().ref(`users/${googleUser.uid}`).push({
-    percentage: userAmount
-  })
+  if (count<2)
+  {
+     userKey = firebase.database().ref(`users/${userGlobal}`).push({
+        percentage: userAmount
+    }).getKey()
+    console.log(userKey)
   // 3. Clear the form so that we can write a new note
-  .then(() => {
     userInput.value = "";
-  });
-})
 
-const add = document.querySelector("#add");
-const subtract = document.querySelector("#subtract");
+}
+else{
+    const noteEdits = {
+    percentage: userAmount,
+  }; 
+    firebase.database().ref(`users/${userGlobal}/${userKey}`).update(noteEdits);
+}})
 
-add.addEventListener("click", (e) => {
-  userAmount += 8;
-  totalPercentage = Math.floor((userAmount/64) * 100);
-  fm.setPercentage(totalPercentage);
-})
-
-subtract.addEventListener("click", (e) => {
-  userAmount -= 8;
-  totalPercentage = Math.floor((userAmount/64) * 100);
-  fm.setPercentage(totalPercentage);
-})
 
