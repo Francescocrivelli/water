@@ -29,7 +29,7 @@ const signIn = () => {
       email,
       credential
     };
-    console.log(err);
+    console.log(err+"HWY");
   });
 
 }
