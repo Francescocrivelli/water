@@ -4,11 +4,26 @@
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  
 }
 
+#center-vertically{
+    text-align: center;
+}
 #center-bottom {
   position: absolute; 
   left: 50%;
   bottom: 0px;
+}
+
+#header{
+    background-color: #274C77;
+}
+
+#title{
+    text-align: center;
+    color: #fff;
+    font-size: 40px;
+}
+body {
+background-color: #A3CEF1;
 }
