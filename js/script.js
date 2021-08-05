@@ -470,7 +470,7 @@ else{
 }})
 
    function noWater(){
-        alert("GO DRINK WATER");
+     //   alert("GO DRINK WATER");
      } 
 
 function checkDate(){
