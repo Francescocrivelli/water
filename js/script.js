@@ -1,6 +1,7 @@
 let googleUser;
 var userGlobal;
 let userKey;
+const date = new Date().toDateString()
 window.onload = (event) => {
   // Use this to retain user state between html pages.
   firebase.auth().onAuthStateChanged(function(user) {
@@ -8,6 +9,7 @@ window.onload = (event) => {
       console.log('Logged in as: ' + user.displayName);
       googleUser = user;
       userGlobal = user.uid;
+     checkDate()
     } 
     else {
       window.location = 'index.html'; // If not logged in, navigate back to login page.
@@ -426,7 +428,6 @@ const submitButton = document.querySelector("#submit");
 const userInput = document.querySelector("#userAmount");
 var userAmount = 0
 var totalPercentage = 0;
-const date = new Date().toISOString()
 let count = 0
 submitButton.addEventListener("click", (e) => {
   count++;
@@ -447,7 +448,7 @@ submitButton.addEventListener("click", (e) => {
      userKey = firebase.database().ref(`users/${userGlobal}`).push({
         consumption: userAmount,
         percentage: totalPercentage,
-        created: date
+        date: date,
     }).getKey()
     userInput.value = "";
 
@@ -457,5 +458,28 @@ else{
     consumption: userAmount,
     percentage: totalPercentage,
   }; 
-    firebase.database().ref(`users/${userGlobal}/${userKey}`).update(noteEdits);
+    firebase.database().ref(`users/${userGlobal}/${userKey}`).update(noteEdits);    
 }})
+
+function checkDate(){
+    const dateRef = firebase.database().ref(`users/${userGlobal}`)
+    dateRef.orderByChild("created").on("value", snapshot => {
+    renderDataAsHtml(snapshot);
+  });
+}
+
+const renderDataAsHtml = (data) => {
+  data.forEach((waterLog) => {
+    const oneKey = waterLog.key
+    const oneValue = waterLog.val();
+    oneDate = oneValue["date"]
+    if (oneDate == date)
+    {
+        userAmount = oneValue["consumption"];
+        totalPercentage = oneValue["percentage"];
+        fm.setPercentage(totalPercentage);
+        userKey = oneKey;
+        count=2;
+    }
+  })
+};
