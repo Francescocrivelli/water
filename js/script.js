@@ -434,15 +434,15 @@ submitButton.addEventListener("click", (e) => {
   let current = parseInt(userInput.value)
   userAmount += current;
   totalPercentage = Math.floor((userAmount/64) * 100);
-  if (totalPercentage<0)
-  {
-    totalPercentage = 0;
+    if (totalPercentage<0){
+      totalPercentage = 0;
   }
-  if (totalPercentage>100)
-  {
-    totalPercentage = 100;
+  if (totalPercentage>100){
+      totalPercentage = 100;
   }
   fm.setPercentage(totalPercentage);
+  console.log('reading data')
+  const total = 64;
   if (count<2)
   {
      userKey = firebase.database().ref(`users/${userGlobal}`).push({
@@ -450,13 +450,15 @@ submitButton.addEventListener("click", (e) => {
         percentage: totalPercentage,
         date: date,
     }).getKey()
+    console.log(userKey)
+  // 3. Clear the form so that we can write a new note
     userInput.value = "";
 
 }
 else{
     const noteEdits = {
     consumption: userAmount,
-    percentage: totalPercentage,
+    percentage: totalPercentage
   }; 
     firebase.database().ref(`users/${userGlobal}/${userKey}`).update(noteEdits);    
 }})
@@ -472,7 +474,8 @@ const renderDataAsHtml = (data) => {
   data.forEach((waterLog) => {
     const oneKey = waterLog.key
     const oneValue = waterLog.val();
-    oneDate = oneValue["date"]
+    const oneDate = oneValue["date"]
+    console.log(oneValue)
     if (oneDate == date)
     {
         userAmount = oneValue["consumption"];
