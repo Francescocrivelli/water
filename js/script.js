@@ -487,7 +487,6 @@ const renderDataAsHtml = (data) => {
     const oneKey = waterLog.key
     const oneValue = waterLog.val();
     const oneDate = oneValue["date"]
-    console.log(oneValue)
     if (oneDate == date)
     {
         userAmount = oneValue["consumption"];
