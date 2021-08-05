@@ -1,6 +1,8 @@
 let googleUser;
 var userGlobal;
 let userKey;
+var  tTimer = window.setTimeout(noWater,2000000);
+
 const date = new Date().toDateString()
 window.onload = (event) => {
   // Use this to retain user state between html pages.
@@ -430,6 +432,10 @@ var userAmount = 0
 var totalPercentage = 0;
 let count = 0
 submitButton.addEventListener("click", (e) => {
+
+  clearTimeout(tTimer);
+
+
   count++;
   let current = parseInt(userInput.value)
   userAmount += current;
@@ -463,6 +469,12 @@ else{
     firebase.database().ref(`users/${userGlobal}/${userKey}`).update(noteEdits);    
 }})
 
+   function noWater(){
+     //   alert("GO DRINK WATER");
+
+     
+     }  
+
 function checkDate(){
     const dateRef = firebase.database().ref(`users/${userGlobal}`)
     dateRef.orderByChild("created").on("value", snapshot => {
@@ -486,3 +498,4 @@ const renderDataAsHtml = (data) => {
     }
   })
 };
+
