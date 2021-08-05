@@ -1,8 +1,8 @@
 let googleUser;
 var userGlobal;
 let userKey;
+let shownModal=false;
 var  tTimer = window.setTimeout(noWater,2000000);
-
 const date = new Date().toDateString()
 window.onload = (event) => {
   // Use this to retain user state between html pages.
@@ -440,14 +440,20 @@ submitButton.addEventListener("click", (e) => {
   let current = parseInt(userInput.value)
   userAmount += current;
   totalPercentage = Math.floor((userAmount/64) * 100);
-    if (totalPercentage<0){
+  if (totalPercentage<0){
       totalPercentage = 0;
   }
-  if (totalPercentage>100){
-      totalPercentage = 100;
+  if (totalPercentage>=100){
+    if (shownModal == false){
+        showModal();
+        shownModal = true;
+    }
+    totalPercentage = 100;
   }
   fm.setPercentage(totalPercentage);
-  const total = 64;
+  var userOz = document.querySelector("#userOz")
+  userOz.style.display = "block";
+  document.querySelector("#oz").innerHTML = userAmount + " ounces"
   if (count<2)
   {
      userKey = firebase.database().ref(`users/${userGlobal}`).push({
@@ -489,10 +495,29 @@ const renderDataAsHtml = (data) => {
     {
         userAmount = oneValue["consumption"];
         totalPercentage = oneValue["percentage"];
+        if (totalPercentage==100 && shownModal === false)
+        {
+            showModal();
+            shownModal = true;
+        }
         fm.setPercentage(totalPercentage);
         userKey = oneKey;
         count=2;
+        var userOz = document.querySelector("#userOz")
+        userOz.style.display = "block";
+        document.querySelector("#oz").innerHTML = userAmount + " ounces"
     }
   })
 };
+
+function showModal()
+{
+    var modal = document.querySelector("#modal")
+    modal.style.display = "block";
+}
+function closeModal()
+{
+    var modal = document.querySelector("#modal")
+    modal.style.display = "none";
+}
 

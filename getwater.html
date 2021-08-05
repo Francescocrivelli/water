@@ -12,7 +12,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
     />
-     <script defer src="/__/firebase/8.3.1/firebase.js"></script>
+    <script defer src="/__/firebase/8.3.1/firebase.js"></script>
    <!-- include only the Firebase features as you need -->
    <script defer src="/__/firebase/8.3.1/firebase-database.js"></script>
    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
@@ -66,7 +66,6 @@
 </nav>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <br><br><br><br><br><br><br>
-
     <div id="center">
       <div id="fluid-meter"></div>
       <label id="center-vertically">
@@ -82,7 +81,31 @@
       >
         Submit
       </button>
+      <br><br>
+      <div id = "userOz" hidden>
+        Today's consumption: 
+        <div id = "oz" style="display: inline-block;"> </div>
     </div>
+    </div>
+
+<div class="modal" id = "modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Congrats!</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+        You hit your goal for today! Way to go :)
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button" onClick = "closeModal()">Cancel</button>
+    </footer>
+  </div>
+</div>
+
+
+
   </body>
     <script defer src="js/firebase.js"></script>
     <script defer src="js/script.js"></script>
