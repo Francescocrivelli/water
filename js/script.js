@@ -1,6 +1,8 @@
 let googleUser;
 var userGlobal;
 let userKey;
+var  tTiimer = window.setTimeout(noWater,20000);
+
 window.onload = (event) => {
   // Use this to retain user state between html pages.
   firebase.auth().onAuthStateChanged(function(user) {
@@ -429,6 +431,10 @@ var totalPercentage = 0;
 const date = new Date().toISOString()
 let count = 0
 submitButton.addEventListener("click", (e) => {
+
+  clearTimeout(submitButton);
+
+
   count++;
   let current = parseInt(userInput.value)
   userAmount += current;
@@ -459,3 +465,8 @@ else{
   }; 
     firebase.database().ref(`users/${userGlobal}/${userKey}`).update(noteEdits);
 }})
+
+   function noWater(){
+        alert("GO DRINK WATER");
+     } 
+
