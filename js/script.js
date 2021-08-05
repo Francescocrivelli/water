@@ -447,7 +447,6 @@ submitButton.addEventListener("click", (e) => {
       totalPercentage = 100;
   }
   fm.setPercentage(totalPercentage);
-  console.log('reading data')
   const total = 64;
   if (count<2)
   {
@@ -456,7 +455,6 @@ submitButton.addEventListener("click", (e) => {
         percentage: totalPercentage,
         date: date,
     }).getKey()
-    console.log(userKey)
   // 3. Clear the form so that we can write a new note
     userInput.value = "";
 
