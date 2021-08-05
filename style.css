@@ -16,13 +16,14 @@
 }
 
 #header{
-    text-align: center;
-    color: #fff;
-    font-size: 40px;
-    padding: 20px;
     background-color: #274C77;
 }
 
+#title{
+    text-align: center;
+    color: #fff;
+    font-size: 40px;
+}
 body {
 background-color: #A3CEF1;
 }
