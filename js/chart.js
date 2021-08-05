@@ -5,6 +5,7 @@ window.onload = (event) => {
       console.log('Logged in as: ' + user.displayName);
       const googleUserId = user.uid;
       getWater(googleUserId);
+      callChart();
     } else {
       // If not logged in, navigate back to login page.
       window.location = 'index.html'; 
@@ -44,6 +45,7 @@ const renderDataAsInfo = (data) => {
 console.log(waterAmounts);
 
 
+function callChart() {
 const labels = [
   'Monday',
   'Tuesday',
@@ -60,7 +62,7 @@ const labels = [
 var data = {
   labels: labels,
   datasets: [{
-    label: 'Weekly Water Consumption',
+    label: 'Weekly Water Consumption (perentage)',
     backgroundColor: 'rgb(255, 99, 132)',
     borderColor: 'rgb(255, 99, 132)',
     data: waterAmounts,
@@ -79,3 +81,4 @@ const config = {
     document.getElementById('myChart'),
     config
   );
+}
