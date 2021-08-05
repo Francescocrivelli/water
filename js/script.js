@@ -1,7 +1,7 @@
 let googleUser;
 var userGlobal;
 let userKey;
-var  tTimer = window.setTimeout(noWater,20000);
+var  tTimer = window.setTimeout(noWater,2000000);
 
 const date = new Date().toDateString()
 window.onload = (event) => {
