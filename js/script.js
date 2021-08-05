@@ -471,7 +471,9 @@ else{
 
    function noWater(){
      //   alert("GO DRINK WATER");
-     } 
+
+     
+     }  
 
 function checkDate(){
     const dateRef = firebase.database().ref(`users/${userGlobal}`)
