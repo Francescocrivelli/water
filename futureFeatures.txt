@@ -1,0 +1,12 @@
+One thing we wanted to add was a conversion option for the user input. Although ounces is the convention in 
+the United States, it is standard internationally to use milliliters therefore we’d like to add an option for 
+users to select their measurement of choice when inputting data.
+
+Another feature we would like to add is a leaderboard. With this feature, we would like to allow our
+users to add friends who also use the app and these users would be ranked based on who had consumed the most water for
+the week, and these users would also get bonus points for having daily entries.
+
+The final feature we hoped to add was an alert that pops up when a user has a low water consumption 
+after a certain time of day. The purpose of this alert was to remind users to drink more water. This 
+feature would allow for users to be more motivated to drink water or input their consumption in the web
+app in case they forgot. 

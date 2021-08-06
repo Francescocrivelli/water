@@ -440,6 +440,7 @@ submitButton.addEventListener("click", (e) => {
   count++;
   let current = parseInt(userInput.value)
   userAmount += current;
+//   console.log(userAmount)
   totalPercentage = Math.floor((userAmount/64) * 100);
   if (totalPercentage<0){
       totalPercentage = 0;
@@ -504,6 +505,7 @@ const renderDataAsHtml = (data) => {
         }
         fm.setPercentage(totalPercentage);
         userKey = oneKey;
+        console.log(userKey)
         count=2;
         var userOz = document.querySelector("#userOz")
         userOz.style.display = "block";

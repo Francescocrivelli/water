@@ -64,8 +64,19 @@
     </div>
   </div>
 </nav>
+ <div class="getWeather">
+        <div class="changeDiv" id="changeDiv">
+        <label class="change" id="label"> Introduce your zip-Code</label>
+        <input class="change" type="text" name="zipCode" id="zipCode">
+        <button class="change" class="button is-primary has-text-centered" id="btnSubmit" onClick="getData()">submit</button>
+        <br class ="change" >
+        </div>
+        <textarea id="result" hidden></textarea>
+        </div>
+
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <br><br><br><br><br><br><br>
+   
     <div id="center">
       <div id="fluid-meter"></div>
       <label id="center-vertically">
@@ -116,7 +127,6 @@
   <div class="modal-card">
     <header class="modal-card-head">
       <p class="modal-card-title">Congrats!</p>
-      <button class="delete" aria-label="close"></button>
     </header>
     <section class="modal-card-body">
         You hit your goal for today! Way to go :)
@@ -132,4 +142,9 @@
   </body>
     <script defer src="js/firebase.js"></script>
     <script defer src="js/script.js"></script>
+    <script defer src="js/getWeather.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+
+
 </html>
