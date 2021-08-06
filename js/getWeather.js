@@ -12,7 +12,7 @@ fetch(url)
 .then(respose =>respose.json())
 .then(data=> {
       temp = parseInt(data.main.temp)
-      $( "#result" ).text( `${$('#result').text()}${data.name}: ${data.main.temp}`+"\n")    
+      $( "#result" ).text( `${$('#result').text()}${data.name}: ${data.main.temp}`+" °F" + "\n")    
      console.log(temp); //Temp = good only inside .then
      if (temp>80){
          var wModal = document.querySelector("#weatherModal")
