@@ -4,12 +4,10 @@ const url = `https://api.openweathermap.org/data/2.5/weather?zip=10001,us&units=
 
 //store zip from div
 //
-var getData = function(){
-    let result = document.getElementById('result');
-    let changeDiv = document.getElementById('changeDiv');
-    let temp;
-     const url = `https://api.openweathermap.org/data/2.5/weather?zip=${$("#zipCode").val()},us&units=imperial&APPID=d7782201bb6ec407967c7d4cf2841c60`;
 
+
+var getData = function(){
+const url = `https://api.openweathermap.org/data/2.5/weather?zip=${$("#zipCode").val()},us&units=imperial&APPID=d7782201bb6ec407967c7d4cf2841c60`;
 fetch(url)
 .then(respose =>respose.json())
 .then(data=> {

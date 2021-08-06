@@ -429,7 +429,8 @@ fm.init({
 
 const submitButton = document.querySelector("#submit");
 const userInput = document.querySelector("#userAmount");
-var userAmount = 0
+
+var userAmount = 0;
 var totalPercentage = 0;
 let count = 0
 submitButton.addEventListener("click", (e) => {
@@ -442,6 +443,7 @@ console.log(zipCode.value);
   count++;
   let current = parseInt(userInput.value)
   userAmount += current;
+//   console.log(userAmount)
   totalPercentage = Math.floor((userAmount/64) * 100);
   if (totalPercentage<0){
       totalPercentage = 0;
@@ -489,6 +491,7 @@ function checkDate(){
   });
 }
 
+
 const renderDataAsHtml = (data) => {
   data.forEach((waterLog) => {
     const oneKey = waterLog.key
@@ -505,6 +508,7 @@ const renderDataAsHtml = (data) => {
         }
         fm.setPercentage(totalPercentage);
         userKey = oneKey;
+        console.log(userKey)
         count=2;
         var userOz = document.querySelector("#userOz")
         userOz.style.display = "block";
@@ -512,6 +516,55 @@ const renderDataAsHtml = (data) => {
     }
   })
 };
+
+//goal stuff starts
+const userGoal = document.querySelector('#userGoal');
+const submitGoal = document.querySelector('#submitGoal')
+console.log(userGoal);
+console.log(submitGoal);
+
+
+var currentConsumption;
+submitGoal.addEventListener("click", (e) => {  
+    setAlert(userGoal.value);
+})
+
+var currentGoal;
+var goalModal = false;
+function setAlert(goal) {
+    currentGoal = parseInt(goal);
+    console.log(currentGoal);
+    const userInfo = firebase.database().ref(`users/${userGlobal}`);
+    userInfo.on('value', (snapshot) => {
+    const data = snapshot.val();
+    var keys = Object.keys(data);
+    var targetKey = keys[keys.length - 1];
+    console.log(targetKey);
+    var currentConsumption = data[targetKey].consumption;   
+    console.log(currentConsumption) 
+
+     if (currentConsumption >= currentGoal && goalModal == false) {
+        console.log('hi')
+        showGoalModal(); 
+    }
+     });
+   
+
+}
+
+function showGoalModal() {
+    var modal1 = document.querySelector('#modalGoal');
+    modal.style.display = "block";
+}
+
+function closeGoalModal()
+{
+    var modal1 = document.querySelector("#modalGoal")
+    modal.style.display = "none";
+}
+
+
+//goal stuff ends
 
 function showModal()
 {
