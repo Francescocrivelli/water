@@ -503,6 +503,7 @@ const renderDataAsHtml = (data) => {
         }
         fm.setPercentage(totalPercentage);
         userKey = oneKey;
+        console.log(userKey)
         count=2;
         var userOz = document.querySelector("#userOz")
         userOz.style.display = "block";
