@@ -8,12 +8,12 @@ const url = `https://api.openweathermap.org/data/2.5/weather?zip=${$("#zipCode")
 fetch(url)
 .then(respose =>respose.json())
 .then(data => $( "#result" ).text( `${$('#result').text()}${data.name}: ${data.main.temp}`+"\n"));
-// document.getElementById('result').style.display = "block";
-// document.getElementById("label").style.display = "hidden";
+document.getElementById('result').style.display = "block";
+document.getElementById('changeDiv').style.display = "none";
+
 
 };
-// console.log(x);
-
+console.log(document.getElementById('changeDiv'));
 // submitButton.addEventListener("click", (e) => {
 //   let myKey = 'YOUR_API_KEY_HERE';
 //   let topic = queryField.value;
