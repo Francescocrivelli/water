@@ -19,6 +19,7 @@ window.onload = (event) => {
   });
 };
 
+
 /**
  * Javascript Fluid Meter
  * by Angel Arcoraci
@@ -433,6 +434,8 @@ var userAmount = 0;
 var totalPercentage = 0;
 let count = 0
 submitButton.addEventListener("click", (e) => {
+let zipCode = document.getElementById('zipCode');
+console.log(zipCode.value);
 
   clearTimeout(tTimer);
 
@@ -463,16 +466,16 @@ submitButton.addEventListener("click", (e) => {
         percentage: totalPercentage,
         date: date,
     }).getKey()
-  // 3. Clear the form so that we can write a new note
+  // 3. Clear the form so that we can write new Data
     userInput.value = "";
 
 }
 else{
-    const noteEdits = {
+    const waterData = {
     consumption: userAmount,
     percentage: totalPercentage
   }; 
-    firebase.database().ref(`users/${userGlobal}/${userKey}`).update(noteEdits);    
+    firebase.database().ref(`users/${userGlobal}/${userKey}`).update(waterData);    
 }})
 
    function noWater(){
@@ -574,3 +577,17 @@ function closeModal()
     modal.style.display = "none";
 }
 
+//get Weather
+
+document.getElementById('zipCode').addEventListener("change", e => { 
+
+    if (zipCode.value.length==5){
+        console.log(zipCode.value);
+    const zipCode3 = {
+    location: zipCode.value,  
+    }
+    firebase.database().ref(`users/${userGlobal}`).push(zipCode3);  //push 
+    }
+   })
+
+   
