@@ -523,10 +523,8 @@ console.log(submitGoal);
 console.log(userKey);
 submitGoal.addEventListener("click", (e) => {
     const userInfo = firebase.database().ref(`users/${userGlobal}`);
-    console.log(userInfo)
     userInfo.on('value', (snapshot) => {
     const data = snapshot.val();
-    console.log(data);
    
    // renderDataAsConsumption(data);
      });
