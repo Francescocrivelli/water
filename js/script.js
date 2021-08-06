@@ -517,27 +517,49 @@ const renderDataAsHtml = (data) => {
 //goal stuff starts
 const userGoal = document.querySelector('#userGoal');
 const submitGoal = document.querySelector('#submitGoal')
-console.log(userAmount);
+console.log(userGoal);
 console.log(submitGoal);
 
-console.log(userKey);
-submitGoal.addEventListener("click", (e) => {
+
+var currentConsumption;
+submitGoal.addEventListener("click", (e) => {  
+    setAlert(userGoal.value);
+})
+
+var currentGoal;
+var goalModal = false;
+function setAlert(goal) {
+    currentGoal = parseInt(goal);
+    console.log(currentGoal);
     const userInfo = firebase.database().ref(`users/${userGlobal}`);
     userInfo.on('value', (snapshot) => {
     const data = snapshot.val();
-   
-   // renderDataAsConsumption(data);
-     });
-      /*
-        function renderDataAsConsumption (data){
-        for(const waterItem in data) {
-         const currentConsumption = data[waterItem].consumption;
-         console.log(currentConsumption)
-         }
-         }
-*/
+    var keys = Object.keys(data);
+    var targetKey = keys[keys.length - 1];
+    console.log(targetKey);
+    var currentConsumption = data[targetKey].consumption;   
+    console.log(currentConsumption) 
 
-})
+     if (currentConsumption >= currentGoal && goalModal == false) {
+        console.log('hi')
+        showGoalModal(); 
+    }
+     });
+   
+
+}
+
+function showGoalModal() {
+    var modal1 = document.querySelector('#modalGoal');
+    modal.style.display = "block";
+}
+
+function closeGoalModal()
+{
+    var modal1 = document.querySelector("#modalGoal")
+    modal.style.display = "none";
+}
+
 
 //goal stuff ends
 
