@@ -1,0 +1,8 @@
+
+Situation: Retrieving data from firebase and formatting the data into the line graph was a challenge that we faced. We needed to figure out how we were going to display the graph and how we would incorporate the firebase data into the graph. 
+Action: We overcame the challenge by importing chart.js to create the chart. In order to retrieve the data and pass it to chart.js to display the data, we created an array of percent data. However, the array wasn’t retrieving the correct data we needed. We solved the problems by debugging and adding breakpoints to see where the problem was occurring and were able to fix the problem.  
+Result: The line graph was able to display and was updated with the daily inputs from firebase. 
+
+Situation: Updating specific values in Firebase; purpose of this was to be able to retrieve the values when the user closed the webpage or refreshed, therefore it was an important 
+Action:  Looked through Firebase documentation and added breakpoints in order to see how far within the code the computer was able to go, then realized that the getKey() firebase method would allow us to get the user’s specific key, which ended up being the fix we needed
+Result: The Firebase was now writing over past data in order to have the most up-to-date information, allowing us to maintain states whenever the user closes the page
