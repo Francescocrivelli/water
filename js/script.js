@@ -428,7 +428,8 @@ fm.init({
 
 const submitButton = document.querySelector("#submit");
 const userInput = document.querySelector("#userAmount");
-var userAmount = 0
+
+var userAmount = 0;
 var totalPercentage = 0;
 let count = 0
 submitButton.addEventListener("click", (e) => {
@@ -486,6 +487,7 @@ function checkDate(){
   });
 }
 
+
 const renderDataAsHtml = (data) => {
   data.forEach((waterLog) => {
     const oneKey = waterLog.key
@@ -509,6 +511,35 @@ const renderDataAsHtml = (data) => {
     }
   })
 };
+
+//goal stuff starts
+const userGoal = document.querySelector('#userGoal');
+const submitGoal = document.querySelector('#submitGoal')
+console.log(userAmount);
+console.log(submitGoal);
+
+console.log(userKey);
+submitGoal.addEventListener("click", (e) => {
+    const userInfo = firebase.database().ref(`users/${userGlobal}`);
+    console.log(userInfo)
+    userInfo.on('value', (snapshot) => {
+    const data = snapshot.val();
+    console.log(data);
+   
+   // renderDataAsConsumption(data);
+     });
+      /*
+        function renderDataAsConsumption (data){
+        for(const waterItem in data) {
+         const currentConsumption = data[waterItem].consumption;
+         console.log(currentConsumption)
+         }
+         }
+*/
+
+})
+
+//goal stuff ends
 
 function showModal()
 {
