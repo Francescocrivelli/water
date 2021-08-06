@@ -66,7 +66,7 @@
 </nav>
  <div class="getWeather">
         <div class="changeDiv" id="changeDiv">
-        <label class="change" id="label"> Introduce your zip-Code</label>
+        <label class="change" id="label"> Introduce your Zip-Code</label>
         <input class="change" type="text" name="zipCode" id="zipCode">
         <button class="change" class="button is-primary has-text-centered" id="btnSubmit" onClick="getData()">submit</button>
         <br class ="change" >
@@ -129,10 +129,25 @@
       <p class="modal-card-title">Congrats!</p>
     </header>
     <section class="modal-card-body">
-        You hit your goal for today! Way to go :)
+        You hit the goal for today! Way to go :)
     </section>
     <footer class="modal-card-foot">
       <button class="button" onClick = "closeModal()">Cancel</button>
+    </footer>
+  </div>
+</div>
+
+<div class="modal" id = "modalGoal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Congrats!</p>
+    </header>
+    <section class="modal-card-body">
+        You hit your personal goal for today! Way to go :)
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button" onClick = "closeGoalModal()">Cancel</button>
     </footer>
   </div>
 </div>
