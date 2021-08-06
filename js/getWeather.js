@@ -35,6 +35,7 @@ function closeWeatherModal()
 
 
 
+<<<<<<< HEAD
 
 
 
@@ -71,3 +72,5 @@ function closeWeatherModal()
 //       console.log(error); // Log error if there is one
 //     })
 // })
+=======
+>>>>>>> fff5911e6efaa9c87a56c64491723d0e1944467d
