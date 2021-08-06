@@ -439,6 +439,7 @@ submitButton.addEventListener("click", (e) => {
   count++;
   let current = parseInt(userInput.value)
   userAmount += current;
+//   console.log(userAmount)
   totalPercentage = Math.floor((userAmount/64) * 100);
   if (totalPercentage<0){
       totalPercentage = 0;
